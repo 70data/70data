@@ -1,0 +1,70 @@
+baseURL = "http://70data.net"
+title = "千夜同学"
+
+theme = "fuji"
+metadataformat = "yaml"
+defaultContentLanguage = "zh-cn"
+languageCode = "zh-cn"
+
+canonifyurls = true
+disableKinds = ["RSS", "taxonomyTerm"]
+disablePathToLower = true
+enableEmoji = true
+enableRobotsTXT = true
+hasCJKLanguage = true
+preserveTaxonomyNames = true
+relativeURLs = false
+uglyurls = true
+
+paginate = 9
+summaryLength = 999
+
+[params]
+	# general information
+	author = "千夜同学"
+	keywords = "千夜同学"
+	subTitle = "看脚下一片黑暗 望头顶星光璀璨"
+	description = ""
+	copyright = ""
+	# repository
+	provider = "GitHub"
+	repo_url = "https://github.com/70data/blog"
+	favicon = ""
+	logo = "images/logo.jpg"
+	permalink = "#"
+	# custom assets
+	custom_css = []
+	custom_js  = []
+	# syntax highlighting theme
+	highlight_css  = ""
+    scrollTop = true
+    # reward button, comment this to disable it
+    reward = true
+	[params.palette]
+		primary = "red"
+		accent  = "teal"
+	[params.font]
+		text = "Ubuntu"
+		code = "Ubuntu Mono"
+
+[markup]
+    [markup.highlight]
+        style = "monokailight"
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 2
+
+[taxonomies]
+    tag = "tags"
+
+# menu
+[menu]
+    [[menu.nav]]
+        name = "Home"
+        url = "/"
+        weight = 1
+
+    [[menu.link]]
+        name = "GitHub"
+        url = "https://github.com/70data"
+        weight = 1
