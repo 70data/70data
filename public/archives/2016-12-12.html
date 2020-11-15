@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>SaltStack 开发遇到的问题 | 千夜同学</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="http://70data.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://70data.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://70data.net/favicon-16x16.png">
+    <link rel="manifest" href="http://70data.net/manifest.json">
+    <link rel="mask-icon" href="http://70data.net/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="http://70data.net/css/main.min.15431d6c334f65809fe2bc329da3f2c81c6e3027ab1e25b56afb2bb85fa7fd64.css"/>
+
+    
+    
+    
+
+    
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="http://70data.net/">千夜同学</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="http://70data.net/about/">About</a>
+  
+  </div>
+<footer class="footer">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+<h1 class="post-title">SaltStack 开发遇到的问题</h1>
+    
+    <time>December 12, 2016</time>
+    
+    <div>
+        <p>
+        <p>开发 SaltStack 的 Web 界面，遇到一个神奇的问题：</p>
+<p>通过 Python 调用 salt-api 没有返回值，直到超时，并且后端打印 DEBUG 日志：</p>
+<p><img src="http://70data.net/usr/uploads/2016/12/1678920883.png" alt="saltstack开发遇到的问题1.png"></p>
+<p>会提示机器链接不上，而且机器 hostname 是被拆分开的。</p>
+<p>但是如果使用 curl 命令是可以得到返回值的。</p>
+<pre><code>curl -k https://xx.xxx.com:9000 -H 'Accept: application/x-yaml' -H 'X-Auth-Token: xxxxx' -d client='local' -d tgt='*' -d expr_from='list' -d fun='test.ping'
+</code></pre><p>Python 代码：</p>
+<pre><code>import json
+import urllib
+import urllib2
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+salt_url = 'https://xxx.xxx.xxx.com:9000'
+salt_json_data = {'client':'local', 'tgt':'*', 'expr_form':'list', 'fun':'test.ping'}
+salt_json = json.dumps(salt_json_data)
+header = {'Content-Type':'application/json', 'Accept':'application/x-yaml', 'X-Auth-Token':'xxxx'}
+req = urllib2.Request(salt_url, salt_json, header)
+res = urllib2.urlopen(req)
+result = res.read()
+</code></pre><p>后来。仔细排查日志，发现了问题。</p>
+<p><img src="http://70data.net/usr/uploads/2016/12/2682523982.png" alt="saltstack问题排查1.png"></p>
+<p>有问题的部分的代码：</p>
+<pre><code>if 'topic_lst' in package:
+    topic_lst = package['topic_lst']
+    for topic in topic_lst:
+        if topic in self.present:
+            for client in self.present[topic]:
+                try:
+                    f = client.stream.write(payload)
+                    self.io_loop.add_future(f, lambda f: True)
+                except tornado.iostream.StreamClosedError:
+                    to_remove.append(client)
+        else:
+            log.debug('Publish target {0} not connected'.format(topic))
+</code></pre><p>最后发现 tcp transport 默认是解析数组。</p>
+<p>也就是说 topic_lst，即机器列表，应该是以数组形式传递的。</p>
+<p>修正后，问题得到解决。</p>
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="http://70data.net/tags/Python">#Python</a>
+        
+            <a class="tag" href="http://70data.net/tags/SaltStack">#SaltStack</a>
+        
+      
+    </div>
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="http://70data.net/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="http://70data.net/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://70data.net/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>Git 删除远程服务器文件同时保留本地文件 | 千夜同学</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="http://70data.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://70data.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://70data.net/favicon-16x16.png">
+    <link rel="manifest" href="http://70data.net/manifest.json">
+    <link rel="mask-icon" href="http://70data.net/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="http://70data.net/css/main.min.15431d6c334f65809fe2bc329da3f2c81c6e3027ab1e25b56afb2bb85fa7fd64.css"/>
+
+    
+    
+    
+
+    
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="http://70data.net/">千夜同学</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="http://70data.net/about/">About</a>
+  
+  </div>
+<footer class="footer">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+<h1 class="post-title">Git 删除远程服务器文件同时保留本地文件</h1>
+    
+    <time>November 10, 2015</time>
+    
+    <div>
+        <p>
+        <p>在上传工程到 git 上时，有时候会把本地的一些配置文件传到服务器上，这时你先删除本地，再同步服务器，显然是不合理的。</p>
+<p>git 提供了一个好的解决方法，可以直接删除服务器文件，同时不影响本地文件，命令如下：</p>
+<pre><code>git rm --cached filename/-r directory
+git commit &quot;xxxx&quot;
+git push
+</code></pre><p>1.删除服务器文件，本地保留。</p>
+<pre><code>git rm --cached useless.log
+git commit -m &quot;remove file from remote repository&quot;
+git push
+</code></pre><p>此时 github 上已经不存在了</p>
+<p>2.删除远程 useless 文件夹，本地保留，一定要注意，删除文件夹要使用 -r 参数。</p>
+<pre><code>git rm --cached -r useless
+git commit -m &quot;remove directory from remote repository&quot;
+git push
+</code></pre>
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="http://70data.net/tags/Git">#Git</a>
+        
+      
+    </div>
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="http://70data.net/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="http://70data.net/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://70data.net/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
+</html>

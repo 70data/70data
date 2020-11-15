@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>Go 中如何阻塞等待所有 goroutines 都完成 | 千夜同学</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="http://70data.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://70data.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://70data.net/favicon-16x16.png">
+    <link rel="manifest" href="http://70data.net/manifest.json">
+    <link rel="mask-icon" href="http://70data.net/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="http://70data.net/css/main.min.15431d6c334f65809fe2bc329da3f2c81c6e3027ab1e25b56afb2bb85fa7fd64.css"/>
+
+    
+    
+    
+
+    
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="http://70data.net/">千夜同学</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="http://70data.net/about/">About</a>
+  
+  </div>
+<footer class="footer">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+<h1 class="post-title">Go 中如何阻塞等待所有 goroutines 都完成</h1>
+    
+    <time>May 30, 2017</time>
+    
+    <div>
+        <p>
+        <p>方案一：</p>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+    &quot;runtime&quot;
+    &quot;sync&quot;
+    &quot;time&quot;
+)
+
+// 定义一个同步等待的组
+var wg sync.WaitGroup
+
+// 定义一个Printer函数用于并发
+func Printer(a int) {
+    time.Sleep(2000 * time.Millisecond)
+    fmt.Printf(&quot;i am %d\n&quot;, a)
+    defer wg.Done()
+}
+
+func main() {
+    // 获取cpu个数
+    maxProcs := runtime.NumCPU()
+    // 限制同时运行的goroutines数量
+    runtime.GOMAXPROCS(maxProcs)
+    for i := 0; i &lt; 10; i++ {
+        //为同步等待组增加一个成员
+        wg.Add(1)
+        //并发一个goroutine
+        go Printer(i)
+    }
+    // 阻塞等待所有组内成员都执行完毕退栈
+    wg.Wait()
+    fmt.Println(&quot;WE DONE!!!&quot;)
+}
+</code></pre>
+<p>方案二：</p>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+    &quot;runtime&quot;
+    &quot;time&quot;
+)
+
+// 定义一工并发多少数量
+var num = 14
+var cnum chan int
+
+func Printer(a int) {
+    time.Sleep(2000 * time.Millisecond)
+    fmt.Printf(&quot;i am %d\n&quot;, a)
+    // goroutine结束时传送一个标示给信道
+    cnum &lt;- 1
+}
+
+func main() {
+    // 获取cpu个数
+    maxProcs := runtime.NumCPU()
+    // 限制同时运行的goroutines数量
+    runtime.GOMAXPROCS(maxProcs)
+    // make一个chan,缓存为num
+    cnum = make(chan int, num)
+    for i := 0; i &lt; num; i++ {
+        go Printer(i)
+    }
+    // 下面这个for循环的意义就是利用信道的阻塞 一直从信道里取数据 直到取得跟并发数一样的个数的数据 则视为所有goroutines完成
+    for i := 0; i &lt; num; i++ {
+        &lt;-cnum
+    }
+    fmt.Println(&quot;WE DONE!!!&quot;)
+}
+</code></pre>
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="http://70data.net/tags/Go">#Go</a>
+        
+      
+    </div>
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="http://70data.net/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="http://70data.net/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://70data.net/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
+</html>

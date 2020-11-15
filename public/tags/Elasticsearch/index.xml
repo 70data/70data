@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elasticsearch on 千夜同学</title>
+    <link>http://70data.net/tags/Elasticsearch.html</link>
+    <description>Recent content in Elasticsearch on 千夜同学</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 02 Jan 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://70data.net/tags/Elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Elastic Stack 的演进</title>
+      <link>http://70data.net/archives/2016-01-02.html</link>
+      <pubDate>Sat, 02 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2016-01-02.html</guid>
+      <description>&lt;p&gt;Elastic Stack 是由 Elastic 公司推出的一个技术栈，包括但不限于 beats、logstash、elasticsearch、kibana 等软件。&lt;/p&gt;
+&lt;p&gt;目前整体的架构 大致如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://70data-net-static.smartgslb.com/upload/log/01.png&#34; alt=&#34;01.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>HTTP 传输内容的压缩 | 千夜同学</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="http://70data.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://70data.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://70data.net/favicon-16x16.png">
+    <link rel="manifest" href="http://70data.net/manifest.json">
+    <link rel="mask-icon" href="http://70data.net/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="http://70data.net/css/main.min.15431d6c334f65809fe2bc329da3f2c81c6e3027ab1e25b56afb2bb85fa7fd64.css"/>
+
+    
+    
+    
+
+    
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="http://70data.net/">千夜同学</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="http://70data.net/about/">About</a>
+  
+  </div>
+<footer class="footer">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+<h1 class="post-title">HTTP 传输内容的压缩</h1>
+    
+    <time>September 28, 2017</time>
+    
+    <div>
+        <p>
+        <p>HTTP 压缩，在 HTTP 协议中，其实是内容编码的一种。</p>
+<p>在 HTTP 协议中，可以对内容（也就是 body 部分）进行编码，可以采用 gzip 这样的编码，从而达到压缩的目的。也可以使用其他的编码把内容搅乱或加密，以此来防止未授权的第三方看到文档的内容。所以 HTTP 压缩，其实就是 HTTP 内容编码的一种。</p>
+<p>HTTP 压缩是指: Web 服务器和浏览器之间压缩传输的&quot;文本内容&quot;的方法。HTTP 采用通用的压缩算法，比如 gzip 来压缩 HTML、JavaScript、CSS 文件。能大大减少网络传输的数据量，提高了用户显示网页的速度。</p>
+<p>首先，浏览器发送一个请求（request）给 Web 服务器，支持一个压缩格式如（gzip），服务端会将原来的源码压缩之后，通过 HTTP 响应（response）信息返回给 Web 浏览器，浏览器接收之后，显示出来。</p>
+<p>HTTP 压缩的过程:</p>
+<p>1.浏览器发送 HTTP Request 给 Web 服务器，Request 中有 Accept-Encoding:gzip、deflate。</p>
+<p>2.Web 服务器接到 Request 后，生成原始的 Response，其中有原始的 Content-Type 和 Content-Length。</p>
+<p>3.Web 服务器通过 gzip，来对 Response 进行编码，编码后 header 中有 Content-Type 和 Content-Length（压缩后的大小），并且增加了 Content-Encoding:gzip，然后把 Response 发送给浏览器。</p>
+<p>4.浏览器接到 Response 后，根据 Content-Encoding:gzip 来对 Response 进行解码。获取到原始 Response 后，然后显示出网页。</p>
+<p><img src="http://70data-net-static.smartgslb.com/upload/http/01.png" alt="http压缩过程"></p>
+<p>内容编码类型:</p>
+<p>HTTP 定义了一些标准的内容编码类型，并允许用扩展的形式添加更多的编码。</p>
+<p>Content-Encoding header 就用这些标准化的代号来说明编码时使用的算法 Content-Encoding 值</p>
+<p>gzip 表明实体采用 GNU zip 编码</p>
+<p>compress 表明实体采用 Unix 的文件压缩程序</p>
+<p>deflate 表明实体是用 zlib 的格式压缩的</p>
+<p>identity 表明没有对实体进行编码，当没有 Content-Encoding header 时，就默认为这种情况。</p>
+<p>gzip、compress 以及 deflate 编码都是无损压缩算法，用于减少传输报文的大小，不会导致信息损失。其中 gzip 通常效率最高，使用最为广泛。</p>
+<p>压缩的好处:</p>
+<p>HTTP 压缩对纯文本可以压缩至原内容的40%, 从而节省了60%的数据传输。</p>
+<p>gzip 的缺点:JPEG 这类文件用 gzip 压缩的不够好。</p>
+<p>gzip是如何压缩的:</p>
+<p>简单来说，gzip 压缩是在一个文本文件中找出类似的字符串，并临时替换，使整个文件变小。这种形式的压缩对 Web 来说非常适合，因为 HTML、CSS 文件通常包含大量的重复的字符串。</p>
+<p>HTTP Response 能压缩，HTTP Request 也是可以压缩的。</p>
+<p>浏览器是不会对 Request 压缩的。但是一些 HTTP 程序在发送 Request 时，会对其进行编码。</p>
+<p><img src="http://70data-net-static.smartgslb.com/upload/http/02.png" alt="gzip示例"></p>
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="http://70data.net/tags/HTTP">#HTTP</a>
+        
+      
+    </div>
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="http://70data.net/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="http://70data.net/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://70data.net/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
+</html>

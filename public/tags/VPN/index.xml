@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VPN on 千夜同学</title>
+    <link>http://70data.net/tags/VPN.html</link>
+    <description>Recent content in VPN on 千夜同学</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 15 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://70data.net/tags/VPN/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mac Cisco AnyConnect Client 卸载</title>
+      <link>http://70data.net/archives/2018-02-15.html</link>
+      <pubDate>Thu, 15 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2018-02-15.html</guid>
+      <description>&lt;p&gt;获取所有包信息&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pkgutil --pkgs | grep com.cisco
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

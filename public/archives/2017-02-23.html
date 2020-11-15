@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>CentOS 6.7 以 yum 形式升级内核并安装 Docker | 千夜同学</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="http://70data.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://70data.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://70data.net/favicon-16x16.png">
+    <link rel="manifest" href="http://70data.net/manifest.json">
+    <link rel="mask-icon" href="http://70data.net/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="http://70data.net/css/main.min.15431d6c334f65809fe2bc329da3f2c81c6e3027ab1e25b56afb2bb85fa7fd64.css"/>
+
+    
+    
+    
+
+    
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="http://70data.net/">千夜同学</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="http://70data.net/about/">About</a>
+  
+  </div>
+<footer class="footer">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+<h1 class="post-title">CentOS 6.7 以 yum 形式升级内核并安装 Docker</h1>
+    
+    <time>February 23, 2017</time>
+    
+    <div>
+        <p>
+        <p>目前内核版本。</p>
+<pre><code>[root@lost docker]# uname -r
+2.6.32-573.el6.x86_64
+</code></pre>
+<p>导入 public key。</p>
+<pre><code>[root@lost yum.repos.d]# rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+</code></pre>
+<p>安装 ELRepo。</p>
+<pre><code>[root@lost yum.repos.d]# rpm -Uvh http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm
+Retrieving http://www.elrepo.org/elrepo-release-6-6.el6.elrepo.noarch.rpm
+Preparing...                ########################################### [100%]
+   1:elrepo-release         ########################################### [100%]
+</code></pre>
+<p>安装长期支持版本。</p>
+<pre><code>yum --enablerepo=elrepo-kernel install kernel-lt -y
+</code></pre>
+<p>编辑 grub.conf 文件，修改 Grub 引导顺序。</p>
+<pre><code>vim /etc/grub.conf
+</code></pre>
+<p>确认刚刚安装的内核的位置，然后将 default 修改一下。</p>
+<p>reboot 重启下。</p>
+<p>再次查看内核版本。</p>
+<pre><code>[root@lost ~]# uname -r
+3.10.97-1.el6.elrepo.x86_64
+</code></pre>
+<p>Docker 官方给出的安装方法。</p>
+<p><a href="https://docs.docker.com/engine/installation/">https://docs.docker.com/engine/installation/</a></p>
+<p>将 Shell 脚本下载下来。</p>
+<pre><code>[root@lost ~]# curl -fsSL https://get.docker.com/ &gt; docker_install.sh
+[root@lost ~]# ll
+总用量 60
+-rw-------. 1 root root  1197 2月  23 20:29 anaconda-ks.cfg
+-rw-r--r--  1 root root 14267 2月  23 22:37 docker_install.sh
+-rw-r--r--. 1 root root 27097 2月  23 20:29 install.log
+-rw-r--r--. 1 root root  6996 2月  23 20:28 install.log.syslog
+</code></pre>
+<p>执行脚本。</p>
+<pre><code>[root@lost ~]# sh docker_install.sh 
++ sh -c 'sleep 3; yum -y -q install docker-engine'
+warning: rpmts_HdrFromFdno: Header V4 RSA/SHA1 Signature, key ID 2c52609d: NOKEY
+Importing GPG key 0x2C52609D:
+ Userid: &quot;Docker Release Tool (releasedocker) &lt;docker@docker.com&gt;&quot;
+ From  : https://yum.dockerproject.org/gpg
+If you would like to use Docker as a non-root user, you should now consider
+adding your user to the &quot;docker&quot; group with something like:
+  sudo usermod -aG docker your-user
+Remember that you will have to log out and back in for this to take effect!
+</code></pre>
+<p>docker 启动成功，可以正常使用了。</p>
+<pre><code>[root@lost ~]# service docker start
+Starting cgconfig service:                              [确定]
+Starting docker:                                       [确定]
+[root@lost ~]# service docker restart
+停止 docker：                                           [确定]
+Starting docker:                                       [确定]
+</code></pre>
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="http://70data.net/tags/Docker">#Docker</a>
+        
+      
+    </div>
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="http://70data.net/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="http://70data.net/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://70data.net/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
+</html>

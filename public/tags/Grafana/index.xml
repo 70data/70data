@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Grafana on 千夜同学</title>
+    <link>http://70data.net/tags/Grafana.html</link>
+    <description>Recent content in Grafana on 千夜同学</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 04 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://70data.net/tags/Grafana/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Grafana 中的 Data(IEC) 和 Data(metric)</title>
+      <link>http://70data.net/archives/2019-02-04.html</link>
+      <pubDate>Mon, 04 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2019-02-04.html</guid>
+      <description>参见 https://en.wikipedia.org/wiki/Mebibyte IEC 是以二进制</description>
+    </item>
+    
+    <item>
+      <title>Grafana 忘记密码 重置 admin 密码</title>
+      <link>http://70data.net/archives/2018-04-01.html</link>
+      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2018-04-01.html</guid>
+      <description>&lt;p&gt;先进入 grafana 的数据库&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sqlite3 /var/lib/grafana/grafana.db
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行 update 操作&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sqlite&amp;gt; update user set password = &#39;59acf18b94d7eb0694c61e60ce44c110c7a683ac6a8f09580d626f90f4a242000746579358d77dd9e570e83fa24faa88a8a6&#39;, salt = &#39;F3FAxVm33R&#39; where login = &#39;admin&#39;;
+sqlite&amp;gt; .exit
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

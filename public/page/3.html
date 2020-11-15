@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+    <head>
+	<meta name="generator" content="Hugo 0.69.2" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>千夜同学</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="http://70data.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://70data.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://70data.net/favicon-16x16.png">
+    <link rel="manifest" href="http://70data.net/manifest.json">
+    <link rel="mask-icon" href="http://70data.net/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="http://70data.net/css/main.min.15431d6c334f65809fe2bc329da3f2c81c6e3027ab1e25b56afb2bb85fa7fd64.css"/>
+
+    
+    
+    
+
+    
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="http://70data.net/">千夜同学</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="http://70data.net/about/">About</a>
+  
+  </div>
+<footer class="footer">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+</nav>
+
+        <div id="content" class="content-container">
+        
+<div class = "article-content">
+        
+        <div class="description">
+            <p></p>
+        </div>
+        
+        
+        
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2015-11-04.html">
+                    Git 放弃本地修改 直接 pull 代码
+                </a>
+            </h2>
+            <div>
+                <p><p>先 reset 然后清空。</p>
+<pre><code>git reset --hard HEAD    
+git clean -f -d    
+git pull
+</code></pre></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>November 4, 2015</time>
+
+            
+            
+                
+                    <a class="tag">#Git</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2015-11-03.html">
+                    github push 错误 The requested URL returned error 403 Forbidden while accessing
+                </a>
+            </h2>
+            <div>
+                <p><pre><code>git push  
+error: The requested URL returned error: 403 Forbidden while accessing
+</code></pre></p>
+                
+                    <a href="http://70data.net/archives/2015-11-03.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>November 3, 2015</time>
+
+            
+            
+                
+                    <a class="tag">#Git</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2015-06-18.html">
+                    TCPCopy 常见问题
+                </a>
+            </h2>
+            <div>
+                <p><p>TCPCopy 常见问题:
+出现 timeout 或者是频繁丢包</p>
+<pre><code>sysctl -w net.core.rmem_max=131071
+sysctl -w net.core.wmem_max=131071
+sysctl -p
+</code></pre><p>虚拟机使用 ab 测试的结果
+会有包堆积的情况 不会马上处理 在 ab 测试数据跑完后 依然在处理数据包</p>
+<pre><code>10000    100    缺包不明显
+10000    500    出现 ack 处理异常 缺包不明显
+10000    1000   出现 ack 处理异常 缺包不明显 有内存堆积不到 1MB 
+10000    2000   出现 ack 处理异常 缺包明显 3000 左右 有内存堆积 11MB
+20000    500    出现 ack 处理异常 缺包不明显 有内存堆积 11MB
+20000    1000   出现 ack 处理异常 缺包明显 13000 左右 有内存堆积 21MB
+20000    2000   出现 ack 处理异常 缺包明显 13000 左右 有内存堆积 28MB
+</code></pre></p>
+                
+                    <a href="http://70data.net/archives/2015-06-18.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>June 18, 2015</time>
+
+            
+            
+                
+                    <a class="tag">#TCPCopy</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2015-06-17.html">
+                    使用 TCPCopy 做引流测试
+                </a>
+            </h2>
+            <div>
+                <p><p><img src="http://70data.net/usr/uploads/2015/07/913137337.png" alt="tcpcopy结构.png"></p>
+<p>TCPCopy 默认从 IP 层抓包，从 IP 层发包，我们在测试服务器进行响应包的截获，并通过 intercept 程序返回响应包的必要信息给 TCPCopy。</p>
+<p>在线上要引流的机器和测试机分别安装 TCPCopy，版本 tcpcopy-0.9.6.tar.gz</p>
+<p>然后</p>
+<pre><code>configure
+make
+make install
+</code></pre></p>
+                
+                    <a href="http://70data.net/archives/2015-06-17.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>June 17, 2015</time>
+
+            
+            
+                
+                    <a class="tag">#TCPCopy</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-25.html">
+                    Python dict 排序
+                </a>
+            </h2>
+            <div>
+                <p><p>对 dict 排序的方法，主要是把 dict 中的元素分离出来放到一个 list 中，对 list 排序，从而间接实现对 dict 的排序。</p>
+<p>这个&quot;元素&quot;可以是 key、value 或者 item。</p></p>
+                
+                    <a href="http://70data.net/archives/2014-07-25.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 25, 2014</time>
+
+            
+            
+                
+                    <a class="tag">#Python</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-23.html">
+                    Python 提取文本中的中文
+                </a>
+            </h2>
+            <div>
+                <p><p>主要是通过中文编码范围匹配</p>
+<pre><code># -*- coding: utf-8 -*-
+import re
+import sys
+
+reload(sys)
+sys.setdefaultencoding(&quot;utf8&quot;)
+
+def translate(str):
+    # 处理前进行相关的处理 包括转换成 Unicode 等
+    line = str.strip().decode('utf-8', 'ignore')
+    # 中文的编码范围是 \u4e00 到 \u9fa5
+    p2 = re.compile(ur'[^\u4e00-\u9fa5]')
+    zh = &quot; &quot;.join(p2.split(line)).strip()
+    zh = &quot;,&quot;.join(zh.split())
+    # 经过相关处理后得到中文的文本
+    outStr = zh
+    return outStr
+</code></pre></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 23, 2014</time>
+
+            
+            
+                
+                    <a class="tag">#Python</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-13.html">
+                    Python list 去重
+                </a>
+            </h2>
+            <div>
+                <p><p>基础方法</p>
+<pre><code>ids = [1,2,3,3,4,2,3,4,5,6,1]
+news_ids = []
+for id in ids:
+    if id not in news_ids:
+        news_ids.append(id)
+print news_ids
+</code></pre></p>
+                
+                    <a href="http://70data.net/archives/2014-07-13.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 13, 2014</time>
+
+            
+            
+                
+                    <a class="tag">#Python</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-09.html">
+                    Flask 时快时慢的问题
+                </a>
+            </h2>
+            <div>
+                <p><pre><code>app.run(host=&quot;0.0.0.0&quot;, port=8080)
+</code></pre><p>当 app.run 设置成这样的时候，有时候页面加载会时快时慢。
+原来默认 Flask 是单线程的，需要更改参数。</p></p>
+                
+                    <a href="http://70data.net/archives/2014-07-09.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 9, 2014</time>
+
+            
+            
+                
+                    <a class="tag">#Python</a>
+                
+                    <a class="tag">#Flask</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-02.html">
+                    让你的 Python 代码更 Pythonic
+                </a>
+            </h2>
+            <div>
+                <p><p>变量交换</p>
+<pre><code>a, b = b, a
+</code></pre>
+<p>循环遍历</p>
+<pre><code>for i in xrange(6):
+    print i
+</code></pre>
+<p>带有索引位置的集合遍历</p>
+<pre><code>colors = ['red', 'green', 'blue', 'yellow']
+for i, color in enumerate(colors):
+    print i, color
+</code></pre>
+<p>字符串拼接</p>
+<pre><code>names = ['raymond', 'rachel', 'matthew', 'roger', 'betty', 'melissa', 'judith', 'charlie']
+print ', '.join(names)
+</code></pre>
+<p>打开文件</p>
+<pre><code>with open('data.txt') as f:
+    data = f.read()
+</code></pre>
+<p>列表推导式</p>
+<pre><code>[j for i in xrange(10)]
+</code></pre>
+<p>遍历字典</p>
+<pre><code>for k, v in d.iteritems():
+    print k, v
+for i, v in enumerate(l):
+    pass
+</code></pre>
+<p>构建字典</p>
+<pre><code>names = ['raymond', 'rachel', 'matthew']
+colors = ['red', 'green', 'blue']
+d = dict(izip(names, colors))
+</code></pre></p>
+                
+                    <a href="http://70data.net/archives/2014-07-02.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 2, 2014</time>
+
+            
+            
+                
+                    <a class="tag">#Python</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+    </div>
+        
+        <div class="paginator">
+        
+        
+        <p>Page 3 of 5</p>
+        <div class="paginator-group">
+            
+            <a class="color-link" href="http://70data.net/page/2.html">
+                    <svg width="13px" height="9px" viewBox="0 0 13 9" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                        <g class="color-arrow" fill="#63BDA2" fill-rule="nonzero">
+                            <polygon id="Path" points="1.75929935 4.50000282 5.3292523 7.62371165 4.6707477 8.37628835 0.240700645 4.49999718 4.67081049 0.623709205 5.32930951 1.37629079"></polygon>
+                            <polygon id="Path" points="13 4 13 5 1 5 1 4"></polygon>
+                        </g>
+                </svg>  
+                Newer          
+            </a>
+            
+            
+                <a class="color-link older" href="http://70data.net/page/4.html">
+                    Older
+                    <svg width="13px" height="9px" viewBox="0 0 13 9" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                            <g class="color-arrow" fill="#63BDA2" fill-rule="nonzero">
+                                <polygon points="7.6707477 1.37628835 8.3292523 0.623711653 12.7592994 4.50000282 8.32918951 8.37629079 7.67069049 7.62370921 11.2407006 4.49999718"></polygon>
+                                <polygon id="Path" points="0 5 0 4 12 4 12 5"></polygon>
+                            </g>
+                    </svg>
+                        
+                </a>
+            
+        </div>
+        
+    </div>
+
+        
+
+<link rel="stylesheet" type="text/css" href="http://70data.net/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="http://70data.net/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://70data.net/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
+</html>

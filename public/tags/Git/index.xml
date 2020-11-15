@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on 千夜同学</title>
+    <link>http://70data.net/tags/Git.html</link>
+    <description>Recent content in Git on 千夜同学</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 12 Nov 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://70data.net/tags/Git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Rebase</title>
+      <link>http://70data.net/archives/2015-11-12.html</link>
+      <pubDate>Thu, 12 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2015-11-12.html</guid>
+      <description>&lt;p&gt;分支合并，有两个选择，一个是 &lt;code&gt;merge&lt;/code&gt;，另一个是 &lt;code&gt;rebase&lt;/code&gt;。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;merge&lt;/code&gt; 和 &lt;code&gt;rebase&lt;/code&gt; 合并后的结果是一模一样的，形象的说，二者是殊途同归。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用 &lt;code&gt;rebase&lt;/code&gt; 后的 &lt;code&gt;commit&lt;/code&gt; 与之前的 &lt;code&gt;commit&lt;/code&gt;，它们的 SHA-1 值不同，Git 会把它们看成两次提交。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git 回滚合并</title>
+      <link>http://70data.net/archives/2015-11-11.html</link>
+      <pubDate>Wed, 11 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2015-11-11.html</guid>
+      <description>&lt;p&gt;假设有如下分支图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://70data.net/usr/uploads/2018/02/94180264.png&#34; alt=&#34;unmerge1.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;注：Git 分支图中的箭头表示依赖关系，并不是分支发展路线。发展路线和箭头是相反的。也就是图中是从 C1 开始一直发展到 C12 的。&lt;/p&gt;
+&lt;p&gt;假设要回滚 C10。&lt;/p&gt;
+&lt;p&gt;第一种解决方案是将 &lt;code&gt;master&lt;/code&gt; 回退到 C8，然后将两个特性分支 &lt;code&gt;jk/post-checkout&lt;/code&gt; 和 &lt;code&gt;db/push-cleanup&lt;/code&gt; 合并过来。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git checkout master
+git reset --hard [sha_of_C8]
+git merge jk/post-checkout
+git merge db/push-cleanup
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;完成之后，分支图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://70data.net/usr/uploads/2018/02/680467250.png&#34; alt=&#34;unmerge2.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git 删除远程服务器文件同时保留本地文件</title>
+      <link>http://70data.net/archives/2015-11-10.html</link>
+      <pubDate>Tue, 10 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2015-11-10.html</guid>
+      <description>&lt;p&gt;在上传工程到 git 上时，有时候会把本地的一些配置文件传到服务器上，这时你先删除本地，再同步服务器，显然是不合理的。&lt;/p&gt;
+&lt;p&gt;git 提供了一个好的解决方法，可以直接删除服务器文件，同时不影响本地文件，命令如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git rm --cached filename/-r directory
+git commit &amp;quot;xxxx&amp;quot;
+git push
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git 分支管理模型</title>
+      <link>http://70data.net/archives/2015-11-06.html</link>
+      <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2015-11-06.html</guid>
+      <description>&lt;p&gt;单主干&lt;/p&gt;
+&lt;p&gt;单主干的分支实践（Trunk-based development TBD）在 SVN 中比较流行。Google 和 Facebook 都使用这种方式。&lt;/p&gt;
+&lt;p&gt;trunk 是 SVN 中主干分支的名称，对应到 Git 中则是 master 分支。&lt;/p&gt;
+&lt;p&gt;TBD 的特点是所有团队成员都在单个主干分支上进行开发。当需要发布时，先考虑使用标签tag，即 tag 某个 commit 来作为发布的版本。如果仅靠 tag 不能满足要求，则从主干分支创建发布分支。bug 修复在主干分支中进行，再 cherry-pick 到发布分支。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://70data.net/usr/uploads/2018/02/2569065664.png&#34; alt=&#34;git-branch-01.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git 放弃本地修改 直接 pull 代码</title>
+      <link>http://70data.net/archives/2015-11-04.html</link>
+      <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2015-11-04.html</guid>
+      <description>&lt;p&gt;先 reset 然后清空。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git reset --hard HEAD    
+git clean -f -d    
+git pull
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>github push 错误 The requested URL returned error 403 Forbidden while accessing</title>
+      <link>http://70data.net/archives/2015-11-03.html</link>
+      <pubDate>Tue, 03 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2015-11-03.html</guid>
+      <description>&lt;pre&gt;&lt;code&gt;git push  
+error: The requested URL returned error: 403 Forbidden while accessing
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

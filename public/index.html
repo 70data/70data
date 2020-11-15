@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+    <head>
+	<meta name="generator" content="Hugo 0.69.2" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>千夜同学</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="http://70data.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://70data.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://70data.net/favicon-16x16.png">
+    <link rel="manifest" href="http://70data.net/manifest.json">
+    <link rel="mask-icon" href="http://70data.net/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="http://70data.net/css/main.min.15431d6c334f65809fe2bc329da3f2c81c6e3027ab1e25b56afb2bb85fa7fd64.css"/>
+
+    
+    
+    
+
+    
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="http://70data.net/">千夜同学</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="http://70data.net/about/">About</a>
+  
+  </div>
+<footer class="footer">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+</nav>
+
+        <div id="content" class="content-container">
+        
+<div class = "article-content">
+        
+        <div class="description">
+            <p></p>
+        </div>
+        
+        
+        
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2020-01-11.html">
+                    博客内容迁移
+                </a>
+            </h2>
+            <div>
+                <p>博客的内容，迁移至</p>
+                
+                    <a href="http://70data.net/archives/2020-01-11.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>January 11, 2020</time>
+
+            
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2019-02-04.html">
+                    Grafana 中的 Data(IEC) 和 Data(metric)
+                </a>
+            </h2>
+            <div>
+                <p>参见 https://en.wikipedia.org/wiki/Mebibyte IEC 是以二进制</p>
+                
+                    <a href="http://70data.net/archives/2019-02-04.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>February 4, 2019</time>
+
+            
+            
+                
+                    <a class="tag">#Grafana</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2018-04-19.html">
+                    brew link python3 出错
+                </a>
+            </h2>
+            <div>
+                <p><pre><code>brew install python3
+Warning: python3 3.6.3 is already installed, it's just not linked.
+You can use `brew link python3` to link this version.
+brew link python3
+Linking /usr/local/Cellar/python3/3.6.3... Error: Permission denied @ dir_s_mkdir /usr/local/Frameworks
+</code></pre><p>发现 /usr/local/ 下没有路径 /usr/local/Frameworks，需要新建该路径，并修改权限。</p></p>
+                
+                    <a href="http://70data.net/archives/2018-04-19.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>April 19, 2018</time>
+
+            
+            
+                
+                    <a class="tag">#Python</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2018-04-01.html">
+                    Grafana 忘记密码 重置 admin 密码
+                </a>
+            </h2>
+            <div>
+                <p><p>先进入 grafana 的数据库</p>
+<pre><code>sqlite3 /var/lib/grafana/grafana.db
+</code></pre><p>执行 update 操作</p>
+<pre><code>sqlite&gt; update user set password = '59acf18b94d7eb0694c61e60ce44c110c7a683ac6a8f09580d626f90f4a242000746579358d77dd9e570e83fa24faa88a8a6', salt = 'F3FAxVm33R' where login = 'admin';
+sqlite&gt; .exit
+</code></pre></p>
+                
+                    <a href="http://70data.net/archives/2018-04-01.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>April 1, 2018</time>
+
+            
+            
+                
+                    <a class="tag">#Grafana</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2018-02-15.html">
+                    Mac Cisco AnyConnect Client 卸载
+                </a>
+            </h2>
+            <div>
+                <p><p>获取所有包信息</p>
+<pre><code>pkgutil --pkgs | grep com.cisco
+</code></pre></p>
+                
+                    <a href="http://70data.net/archives/2018-02-15.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>February 15, 2018</time>
+
+            
+            
+                
+                    <a class="tag">#VPN</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2018-02-01.html">
+                    InfluxDB 报错 connection refused service=subscriber
+                </a>
+            </h2>
+            <div>
+                <p><p>InfluxDB 的日志中有大量如下报错</p>
+<pre><code>Post http://localhost:9092/write?consistency=&amp;db=_internal&amp;precision=ns&amp;rp=monitor: dial tcp 127.0.0.1:9092: getsockopt: connection refused service=subscriber
+</code></pre></p>
+                
+                    <a href="http://70data.net/archives/2018-02-01.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>February 1, 2018</time>
+
+            
+            
+                
+                    <a class="tag">#InfluxDB</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2017-09-28.html">
+                    HTTP 传输内容的压缩
+                </a>
+            </h2>
+            <div>
+                <p><p>HTTP 压缩，在 HTTP 协议中，其实是内容编码的一种。</p>
+<p>在 HTTP 协议中，可以对内容（也就是 body 部分）进行编码，可以采用 gzip 这样的编码，从而达到压缩的目的。也可以使用其他的编码把内容搅乱或加密，以此来防止未授权的第三方看到文档的内容。所以 HTTP 压缩，其实就是 HTTP 内容编码的一种。</p>
+<p>HTTP 压缩是指: Web 服务器和浏览器之间压缩传输的&quot;文本内容&quot;的方法。HTTP 采用通用的压缩算法，比如 gzip 来压缩 HTML、JavaScript、CSS 文件。能大大减少网络传输的数据量，提高了用户显示网页的速度。</p>
+<p>首先，浏览器发送一个请求（request）给 Web 服务器，支持一个压缩格式如（gzip），服务端会将原来的源码压缩之后，通过 HTTP 响应（response）信息返回给 Web 浏览器，浏览器接收之后，显示出来。</p>
+<p>HTTP 压缩的过程:</p>
+<p>1.浏览器发送 HTTP Request 给 Web 服务器，Request 中有 Accept-Encoding:gzip、deflate。</p>
+<p>2.Web 服务器接到 Request 后，生成原始的 Response，其中有原始的 Content-Type 和 Content-Length。</p>
+<p>3.Web 服务器通过 gzip，来对 Response 进行编码，编码后 header 中有 Content-Type 和 Content-Length（压缩后的大小），并且增加了 Content-Encoding:gzip，然后把 Response 发送给浏览器。</p>
+<p>4.浏览器接到 Response 后，根据 Content-Encoding:gzip 来对 Response 进行解码。获取到原始 Response 后，然后显示出网页。</p></p>
+                
+                    <a href="http://70data.net/archives/2017-09-28.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>September 28, 2017</time>
+
+            
+            
+                
+                    <a class="tag">#HTTP</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2017-05-31.html">
+                    Go cond 锁定期唤醒锁
+                </a>
+            </h2>
+            <div>
+                <p>package main import ( &quot;fmt&quot; &quot;sync&quot; &quot;time&quot; ) var</p>
+                
+                    <a href="http://70data.net/archives/2017-05-31.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>May 31, 2017</time>
+
+            
+            
+                
+                    <a class="tag">#Go</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+        <article>
+            <h2>
+                <a href="http://70data.net/archives/2017-05-30.html">
+                    Go 中如何阻塞等待所有 goroutines 都完成
+                </a>
+            </h2>
+            <div>
+                <p><p>方案一：</p>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+    &quot;runtime&quot;
+    &quot;sync&quot;
+    &quot;time&quot;
+)
+
+// 定义一个同步等待的组
+var wg sync.WaitGroup
+
+// 定义一个Printer函数用于并发
+func Printer(a int) {
+    time.Sleep(2000 * time.Millisecond)
+    fmt.Printf(&quot;i am %d\n&quot;, a)
+    defer wg.Done()
+}
+
+func main() {
+    // 获取cpu个数
+    maxProcs := runtime.NumCPU()
+    // 限制同时运行的goroutines数量
+    runtime.GOMAXPROCS(maxProcs)
+    for i := 0; i &lt; 10; i++ {
+        //为同步等待组增加一个成员
+        wg.Add(1)
+        //并发一个goroutine
+        go Printer(i)
+    }
+    // 阻塞等待所有组内成员都执行完毕退栈
+    wg.Wait()
+    fmt.Println(&quot;WE DONE!!!&quot;)
+}
+</code></pre></p>
+                
+                    <a href="http://70data.net/archives/2017-05-30.html">Read more</a>
+                
+            </div>
+            <div class="post-footer">
+            <time>May 30, 2017</time>
+
+            
+            
+                
+                    <a class="tag">#Go</a>
+                
+            
+            </div> 
+           
+        </article>
+        
+    </div>
+        
+        <div class="paginator">
+        
+        
+        <p>Page 1 of 5</p>
+        <div class="paginator-group">
+            
+            
+                <a class="color-link older" href="http://70data.net/page/2.html">
+                    Older
+                    <svg width="13px" height="9px" viewBox="0 0 13 9" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                            <g class="color-arrow" fill="#63BDA2" fill-rule="nonzero">
+                                <polygon points="7.6707477 1.37628835 8.3292523 0.623711653 12.7592994 4.50000282 8.32918951 8.37629079 7.67069049 7.62370921 11.2407006 4.49999718"></polygon>
+                                <polygon id="Path" points="0 5 0 4 12 4 12 5"></polygon>
+                            </g>
+                    </svg>
+                        
+                </a>
+            
+        </div>
+        
+    </div>
+
+        
+
+<link rel="stylesheet" type="text/css" href="http://70data.net/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="http://70data.net/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://70data.net/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
+</html>

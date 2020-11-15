@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 千夜同学</title>
+    <link>http://70data.net/tags/Python.html</link>
+    <description>Recent content in Python on 千夜同学</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 19 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://70data.net/tags/Python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>brew link python3 出错</title>
+      <link>http://70data.net/archives/2018-04-19.html</link>
+      <pubDate>Thu, 19 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2018-04-19.html</guid>
+      <description>&lt;pre&gt;&lt;code&gt;brew install python3
+Warning: python3 3.6.3 is already installed, it&#39;s just not linked.
+You can use `brew link python3` to link this version.
+brew link python3
+Linking /usr/local/Cellar/python3/3.6.3... Error: Permission denied @ dir_s_mkdir /usr/local/Frameworks
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;发现 /usr/local/ 下没有路径 /usr/local/Frameworks，需要新建该路径，并修改权限。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SaltStack 开发遇到的问题</title>
+      <link>http://70data.net/archives/2016-12-12.html</link>
+      <pubDate>Mon, 12 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2016-12-12.html</guid>
+      <description>&lt;p&gt;开发 SaltStack 的 Web 界面，遇到一个神奇的问题：&lt;/p&gt;
+&lt;p&gt;通过 Python 调用 salt-api 没有返回值，直到超时，并且后端打印 DEBUG 日志：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://70data.net/usr/uploads/2016/12/1678920883.png&#34; alt=&#34;saltstack开发遇到的问题1.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;会提示机器链接不上，而且机器 hostname 是被拆分开的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python dict 排序</title>
+      <link>http://70data.net/archives/2014-07-25.html</link>
+      <pubDate>Fri, 25 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2014-07-25.html</guid>
+      <description>&lt;p&gt;对 dict 排序的方法，主要是把 dict 中的元素分离出来放到一个 list 中，对 list 排序，从而间接实现对 dict 的排序。&lt;/p&gt;
+&lt;p&gt;这个&amp;quot;元素&amp;quot;可以是 key、value 或者 item。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python 提取文本中的中文</title>
+      <link>http://70data.net/archives/2014-07-23.html</link>
+      <pubDate>Wed, 23 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2014-07-23.html</guid>
+      <description>&lt;p&gt;主要是通过中文编码范围匹配&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# -*- coding: utf-8 -*-
+import re
+import sys
+
+reload(sys)
+sys.setdefaultencoding(&amp;quot;utf8&amp;quot;)
+
+def translate(str):
+    # 处理前进行相关的处理 包括转换成 Unicode 等
+    line = str.strip().decode(&#39;utf-8&#39;, &#39;ignore&#39;)
+    # 中文的编码范围是 \u4e00 到 \u9fa5
+    p2 = re.compile(ur&#39;[^\u4e00-\u9fa5]&#39;)
+    zh = &amp;quot; &amp;quot;.join(p2.split(line)).strip()
+    zh = &amp;quot;,&amp;quot;.join(zh.split())
+    # 经过相关处理后得到中文的文本
+    outStr = zh
+    return outStr
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python list 去重</title>
+      <link>http://70data.net/archives/2014-07-13.html</link>
+      <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2014-07-13.html</guid>
+      <description>&lt;p&gt;基础方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ids = [1,2,3,3,4,2,3,4,5,6,1]
+news_ids = []
+for id in ids:
+    if id not in news_ids:
+        news_ids.append(id)
+print news_ids
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Flask 时快时慢的问题</title>
+      <link>http://70data.net/archives/2014-07-09.html</link>
+      <pubDate>Wed, 09 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2014-07-09.html</guid>
+      <description>&lt;pre&gt;&lt;code&gt;app.run(host=&amp;quot;0.0.0.0&amp;quot;, port=8080)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;当 app.run 设置成这样的时候，有时候页面加载会时快时慢。
+原来默认 Flask 是单线程的，需要更改参数。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>让你的 Python 代码更 Pythonic</title>
+      <link>http://70data.net/archives/2014-07-02.html</link>
+      <pubDate>Wed, 02 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2014-07-02.html</guid>
+      <description>&lt;p&gt;变量交换&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;a, b = b, a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;循环遍历&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for i in xrange(6):
+    print i
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;带有索引位置的集合遍历&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;colors = [&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;, &#39;yellow&#39;]
+for i, color in enumerate(colors):
+    print i, color
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;字符串拼接&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;names = [&#39;raymond&#39;, &#39;rachel&#39;, &#39;matthew&#39;, &#39;roger&#39;, &#39;betty&#39;, &#39;melissa&#39;, &#39;judith&#39;, &#39;charlie&#39;]
+print &#39;, &#39;.join(names)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;打开文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;with open(&#39;data.txt&#39;) as f:
+    data = f.read()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;列表推导式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[j for i in xrange(10)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;遍历字典&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for k, v in d.iteritems():
+    print k, v
+for i, v in enumerate(l):
+    pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;构建字典&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;names = [&#39;raymond&#39;, &#39;rachel&#39;, &#39;matthew&#39;]
+colors = [&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;]
+d = dict(izip(names, colors))
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python 升级导致 yum 命令无法使用的解决办法</title>
+      <link>http://70data.net/archives/2013-07-05.html</link>
+      <pubDate>Fri, 05 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2013-07-05.html</guid>
+      <description>&lt;p&gt;报错信息如下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[root@develop local]# yum -y install prce  
+There was a problem importing one of the Python modules  
+required to run yum. The error leading to this problem was:  
+
+No module named yum  
+
+Please install a package which provides this module, or  
+verify that the module is installed correctly.  
+It&#39;s possible that the above module doesn&#39;t match the  
+current version of Python, which is:  
+2.6.1 (r261:67515, Aug 7 2010, 11:36:17)  
+[GCC 4.1.2 20080704 (Red Hat 4.1.2-44)]  
+If you cannot solve this problem yourself, please go to  
+the yum faq at:  
+http://wiki.linux.duke.edu/YumFaq
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

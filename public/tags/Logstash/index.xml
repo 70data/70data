@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logstash on 千夜同学</title>
+    <link>http://70data.net/tags/Logstash.html</link>
+    <description>Recent content in Logstash on 千夜同学</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 16 Nov 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://70data.net/tags/Logstash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>排查 Logstash 2.4 升级到 5.0 版本后 Kafka 不兼容问题</title>
+      <link>http://70data.net/archives/2016-11-16.html</link>
+      <pubDate>Wed, 16 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://70data.net/archives/2016-11-16.html</guid>
+      <description>&lt;p&gt;之前对 ELKB 环境从 2.4 版本升级到最新的 5.0 稳定版本，发现 Kafka 集群运行报错，现在把排查过程记录下。&lt;/p&gt;
+&lt;p&gt;之前环境：&lt;/p&gt;
+&lt;p&gt;logstash2.4&lt;/p&gt;
+&lt;p&gt;logstash-input-kafka-2.0.9&lt;/p&gt;
+&lt;p&gt;logstash-output-kafka-2.0.5&lt;/p&gt;
+&lt;p&gt;kafka_2.10-0.8.2.2.tgz&lt;/p&gt;
+&lt;p&gt;升级后环境：&lt;/p&gt;
+&lt;p&gt;logstash5.0&lt;/p&gt;
+&lt;p&gt;logstash-input-kafka-2.0.9&lt;/p&gt;
+&lt;p&gt;logstash-output-kafka-2.0.5&lt;/p&gt;
+&lt;p&gt;报错信息：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[2016-11-16T14:35:44,739][ERROR][logstash.inputs.kafka] Unknown setting &#39;zk_connect&#39; for kafka
+[2016-11-16T14:35:44,741][ERROR][logstash.inputs.kafka] Unknown setting &#39;topic_id&#39; for kafka
+[2016-11-16T14:35:44,741][ERROR][logstash.inputs.kafka] Unknown setting &#39;reset_beginning&#39; for kafka
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

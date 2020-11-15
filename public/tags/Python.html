@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>Python | 千夜同学</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="http://70data.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://70data.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://70data.net/favicon-16x16.png">
+    <link rel="manifest" href="http://70data.net/manifest.json">
+    <link rel="mask-icon" href="http://70data.net/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="http://70data.net/css/main.min.15431d6c334f65809fe2bc329da3f2c81c6e3027ab1e25b56afb2bb85fa7fd64.css"/>
+
+    
+    
+    
+
+    
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="http://70data.net/">千夜同学</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="http://70data.net/about/">About</a>
+  
+  </div>
+<footer class="footer">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+  <h1>Tagged "Python"</h1>
+  
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2018-04-19.html">
+                    brew link python3 出错
+                </a>
+            </h2>
+            <div>
+                <p><pre><code>brew install python3
+Warning: python3 3.6.3 is already installed, it's just not linked.
+You can use `brew link python3` to link this version.
+brew link python3
+Linking /usr/local/Cellar/python3/3.6.3... Error: Permission denied @ dir_s_mkdir /usr/local/Frameworks
+</code></pre><p>发现 /usr/local/ 下没有路径 /usr/local/Frameworks，需要新建该路径，并修改权限。</p></p>
+                
+                <p><a href="http://70data.net/archives/2018-04-19.html">Read more...</a></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>April 19, 2018</time>
+            </div> 
+        </article>
+    
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2016-12-12.html">
+                    SaltStack 开发遇到的问题
+                </a>
+            </h2>
+            <div>
+                <p><p>开发 SaltStack 的 Web 界面，遇到一个神奇的问题：</p>
+<p>通过 Python 调用 salt-api 没有返回值，直到超时，并且后端打印 DEBUG 日志：</p>
+<p><img src="http://70data.net/usr/uploads/2016/12/1678920883.png" alt="saltstack开发遇到的问题1.png"></p>
+<p>会提示机器链接不上，而且机器 hostname 是被拆分开的。</p></p>
+                
+                <p><a href="http://70data.net/archives/2016-12-12.html">Read more...</a></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>December 12, 2016</time>
+            </div> 
+        </article>
+    
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-25.html">
+                    Python dict 排序
+                </a>
+            </h2>
+            <div>
+                <p><p>对 dict 排序的方法，主要是把 dict 中的元素分离出来放到一个 list 中，对 list 排序，从而间接实现对 dict 的排序。</p>
+<p>这个&quot;元素&quot;可以是 key、value 或者 item。</p></p>
+                
+                <p><a href="http://70data.net/archives/2014-07-25.html">Read more...</a></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 25, 2014</time>
+            </div> 
+        </article>
+    
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-23.html">
+                    Python 提取文本中的中文
+                </a>
+            </h2>
+            <div>
+                <p><p>主要是通过中文编码范围匹配</p>
+<pre><code># -*- coding: utf-8 -*-
+import re
+import sys
+
+reload(sys)
+sys.setdefaultencoding(&quot;utf8&quot;)
+
+def translate(str):
+    # 处理前进行相关的处理 包括转换成 Unicode 等
+    line = str.strip().decode('utf-8', 'ignore')
+    # 中文的编码范围是 \u4e00 到 \u9fa5
+    p2 = re.compile(ur'[^\u4e00-\u9fa5]')
+    zh = &quot; &quot;.join(p2.split(line)).strip()
+    zh = &quot;,&quot;.join(zh.split())
+    # 经过相关处理后得到中文的文本
+    outStr = zh
+    return outStr
+</code></pre></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 23, 2014</time>
+            </div> 
+        </article>
+    
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-13.html">
+                    Python list 去重
+                </a>
+            </h2>
+            <div>
+                <p><p>基础方法</p>
+<pre><code>ids = [1,2,3,3,4,2,3,4,5,6,1]
+news_ids = []
+for id in ids:
+    if id not in news_ids:
+        news_ids.append(id)
+print news_ids
+</code></pre></p>
+                
+                <p><a href="http://70data.net/archives/2014-07-13.html">Read more...</a></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 13, 2014</time>
+            </div> 
+        </article>
+    
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-09.html">
+                    Flask 时快时慢的问题
+                </a>
+            </h2>
+            <div>
+                <p><pre><code>app.run(host=&quot;0.0.0.0&quot;, port=8080)
+</code></pre><p>当 app.run 设置成这样的时候，有时候页面加载会时快时慢。
+原来默认 Flask 是单线程的，需要更改参数。</p></p>
+                
+                <p><a href="http://70data.net/archives/2014-07-09.html">Read more...</a></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 9, 2014</time>
+            </div> 
+        </article>
+    
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2014-07-02.html">
+                    让你的 Python 代码更 Pythonic
+                </a>
+            </h2>
+            <div>
+                <p><p>变量交换</p>
+<pre><code>a, b = b, a
+</code></pre>
+<p>循环遍历</p>
+<pre><code>for i in xrange(6):
+    print i
+</code></pre>
+<p>带有索引位置的集合遍历</p>
+<pre><code>colors = ['red', 'green', 'blue', 'yellow']
+for i, color in enumerate(colors):
+    print i, color
+</code></pre>
+<p>字符串拼接</p>
+<pre><code>names = ['raymond', 'rachel', 'matthew', 'roger', 'betty', 'melissa', 'judith', 'charlie']
+print ', '.join(names)
+</code></pre>
+<p>打开文件</p>
+<pre><code>with open('data.txt') as f:
+    data = f.read()
+</code></pre>
+<p>列表推导式</p>
+<pre><code>[j for i in xrange(10)]
+</code></pre>
+<p>遍历字典</p>
+<pre><code>for k, v in d.iteritems():
+    print k, v
+for i, v in enumerate(l):
+    pass
+</code></pre>
+<p>构建字典</p>
+<pre><code>names = ['raymond', 'rachel', 'matthew']
+colors = ['red', 'green', 'blue']
+d = dict(izip(names, colors))
+</code></pre></p>
+                
+                <p><a href="http://70data.net/archives/2014-07-02.html">Read more...</a></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 2, 2014</time>
+            </div> 
+        </article>
+    
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2013-07-05.html">
+                    Python 升级导致 yum 命令无法使用的解决办法
+                </a>
+            </h2>
+            <div>
+                <p><p>报错信息如下</p>
+<pre><code>[root@develop local]# yum -y install prce  
+There was a problem importing one of the Python modules  
+required to run yum. The error leading to this problem was:  
+
+No module named yum  
+
+Please install a package which provides this module, or  
+verify that the module is installed correctly.  
+It's possible that the above module doesn't match the  
+current version of Python, which is:  
+2.6.1 (r261:67515, Aug 7 2010, 11:36:17)  
+[GCC 4.1.2 20080704 (Red Hat 4.1.2-44)]  
+If you cannot solve this problem yourself, please go to  
+the yum faq at:  
+http://wiki.linux.duke.edu/YumFaq
+</code></pre></p>
+                
+                <p><a href="http://70data.net/archives/2013-07-05.html">Read more...</a></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>July 5, 2013</time>
+            </div> 
+        </article>
+    
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="http://70data.net/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="http://70data.net/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://70data.net/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
+</html>

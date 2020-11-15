@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>TCPCopy | 千夜同学</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="http://70data.net/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://70data.net/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://70data.net/favicon-16x16.png">
+    <link rel="manifest" href="http://70data.net/manifest.json">
+    <link rel="mask-icon" href="http://70data.net/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="http://70data.net/css/main.min.15431d6c334f65809fe2bc329da3f2c81c6e3027ab1e25b56afb2bb85fa7fd64.css"/>
+
+    
+    
+    
+
+    
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="http://70data.net/">千夜同学</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="http://70data.net/about/">About</a>
+  
+  </div>
+<footer class="footer">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+  <h1>Tagged "TCPCopy"</h1>
+  
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2015-06-18.html">
+                    TCPCopy 常见问题
+                </a>
+            </h2>
+            <div>
+                <p><p>TCPCopy 常见问题:
+出现 timeout 或者是频繁丢包</p>
+<pre><code>sysctl -w net.core.rmem_max=131071
+sysctl -w net.core.wmem_max=131071
+sysctl -p
+</code></pre><p>虚拟机使用 ab 测试的结果
+会有包堆积的情况 不会马上处理 在 ab 测试数据跑完后 依然在处理数据包</p>
+<pre><code>10000    100    缺包不明显
+10000    500    出现 ack 处理异常 缺包不明显
+10000    1000   出现 ack 处理异常 缺包不明显 有内存堆积不到 1MB 
+10000    2000   出现 ack 处理异常 缺包明显 3000 左右 有内存堆积 11MB
+20000    500    出现 ack 处理异常 缺包不明显 有内存堆积 11MB
+20000    1000   出现 ack 处理异常 缺包明显 13000 左右 有内存堆积 21MB
+20000    2000   出现 ack 处理异常 缺包明显 13000 左右 有内存堆积 28MB
+</code></pre></p>
+                
+                <p><a href="http://70data.net/archives/2015-06-18.html">Read more...</a></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>June 18, 2015</time>
+            </div> 
+        </article>
+    
+  
+    
+    <article>
+            <h2>
+                <a href="http://70data.net/archives/2015-06-17.html">
+                    使用 TCPCopy 做引流测试
+                </a>
+            </h2>
+            <div>
+                <p><p><img src="http://70data.net/usr/uploads/2015/07/913137337.png" alt="tcpcopy结构.png"></p>
+<p>TCPCopy 默认从 IP 层抓包，从 IP 层发包，我们在测试服务器进行响应包的截获，并通过 intercept 程序返回响应包的必要信息给 TCPCopy。</p>
+<p>在线上要引流的机器和测试机分别安装 TCPCopy，版本 tcpcopy-0.9.6.tar.gz</p>
+<p>然后</p>
+<pre><code>configure
+make
+make install
+</code></pre></p>
+                
+                <p><a href="http://70data.net/archives/2015-06-17.html">Read more...</a></p>
+                
+            </div>
+            <div class="post-footer">
+            <time>June 17, 2015</time>
+            </div> 
+        </article>
+    
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="http://70data.net/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="http://70data.net/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://70data.net/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+	<script src="http://70data.net/js/main.min.fa5c2b23e07b5d9bfad267a52b4b24fdb053e6fb7524993383594926a3ac270c.js" integrity="sha256-+lwrI+B7XZv60melK0sk/bBT5vt1JJkzg1lJJqOsJww=" crossorigin="anonymous"></script>
+</footer>
+    </body>
+</html>

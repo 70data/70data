@@ -7,49 +7,47 @@ metadataformat = "yaml"
 defaultContentLanguage = "zh-cn"
 languageCode = "zh-cn"
 
-enableRobotsTXT = true
-
-canonifyurls = true
 relativeURLs = false
 uglyurls = true
-
-disableKinds = ["RSS", "taxonomyTerm"]
-
 disablePathToLower = true
 
-enableEmoji = true
+enableRobotsTXT = true
+canonifyurls = true
 
 hasCJKLanguage = true
-preserveTaxonomyNames = true
+enableEmoji = true
 
-paginate = 9 # Set the number of posts to show before overflowing to the next page.
-summaryLength = 9 # Configure how long the post summary should be on the homepage.
+# Set the number of posts to show before overflowing to the next page.
+paginate = 9
+# Configure how long the post summary should be on the homepage.
+summaryLength = 9
 
 [params]
+
 	# general information
 	author = "千夜同学"
 	keywords = "千夜同学"
 	subTitle = "看脚下一片黑暗 望头顶星光璀璨"
 	description = ""
 	copyright = ""
-	# repository
 	provider = "GitHub"
 	repo_url = "https://github.com/70data/blog"
-	favicon = ""
+	favicon = "http://70data.net/favicon.ico"
 	logo = "images/logo.jpg"
-	permalink = "#"
-	# custom assets
-	custom_css = []
-	custom_js  = []
+
 	# syntax highlighting theme
 	highlight_css  = ""
 	scrollTop = true
-	# reward button, comment this to disable it
+
+	# reward button comment this to disable it
 	reward = true
 	math = true
 	showReadMore = true
-	# Set enableKofi to true to enable the Ko-fi support button. Add your Ko-fi ID to link to your account.
+
+	# Set enableKofi to true to enable the Ko-fi support button
+	# Add your Ko-fi ID to link to your account.
 	enableKofi = false
+
 	[params.palette]
 		primary = "red"
 		accent  = "teal"
@@ -76,3 +74,4 @@ summaryLength = 9 # Configure how long the post summary should be on the homepag
 	name = "About"
 	url = "/about/"
 	weight = 1
+
