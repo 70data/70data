@@ -1,77 +1,84 @@
+author = "千夜同学"
+
 baseURL = "http://70data.net"
 title = "千夜同学"
-
-theme = "noteworthy"
-metadataformat = "yaml"
+copyright = "Copyright © 2012–2022"
 
 defaultContentLanguage = "zh-cn"
 languageCode = "zh-cn"
-
-relativeURLs = false
-uglyurls = true
-disablePathToLower = true
-
-enableRobotsTXT = true
-canonifyurls = true
-
 hasCJKLanguage = true
+
+theme = "tokiwa"
+
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+
+# uglyurls = true
+disablePathToLower = false
+canonifyurls = true
+relativeURLs = false
+
 enableEmoji = true
 
-# Set the number of posts to show before overflowing to the next page.
+enableRobotsTXT = true
 paginate = 9
-# Configure how long the post summary should be on the homepage.
 summaryLength = 9
 
-[params]
-
-	# general information
-	author = "千夜同学"
-	keywords = "千夜同学"
-	subTitle = "看脚下一片黑暗 望头顶星光璀璨"
-	description = ""
-	copyright = ""
-	provider = "GitHub"
-	repo_url = "https://github.com/70data/blog"
-	favicon = "http://70data.net/favicon.ico"
-	logo = "images/logo.jpg"
-
-	# syntax highlighting theme
-	highlight_css  = ""
-	scrollTop = true
-
-	# reward button comment this to disable it
-	reward = true
-	math = true
-	showReadMore = true
-
-	# Set enableKofi to true to enable the Ko-fi support button
-	# Add your Ko-fi ID to link to your account.
-	enableKofi = false
-
-	[params.palette]
-		primary = "red"
-		accent  = "teal"
-	[params.font]
-		text = "Ubuntu"
-		code = "Ubuntu Mono"
-
-[taxonomies]
-	tag = "tags"
+disqusShortname = "YOURSHORTNAME"
+googleAnalytics = "x"
 
 [markup]
-	[markup.highlight]
-		style = "monokailight"
-	[markup.tableOfContents]
-		startLevel = 2
-		endLevel = 2
-	# Set to false to disallow raw HTML in markdown files
-	[markup.goldmark.renderer]
-		unsafe = true
 
-# Menu links along the sidebar navigation.
+[markup.highlight]
+style = "monokailight"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 2
+
+[params]
+bannerFont = "fonts/exampleFont" 
+description = "看脚下一片黑暗 望头顶星光璀璨" 
+env = "production"
+favicon = "img/favicon-32x32.png" 
+fuse = true
+math = true
+useChineseFonts = true 
+postDateFormat = "2006-1-2"
+
+[menu]
+
 [[menu.main]]
-	identifier = "about"
-	name = "About"
-	url = "/about/"
-	weight = 1
+identifier = "post"
+name = "Posts"
+url = "/posts/"
+weight = 1
+
+[[menu.main]]
+name = "Tags"
+url = "/tags/"
+weight = 2
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 3
+
+[social]
+# mail = "mailto:anon@example.com"
+# github = "http://github.com/"
+# gitlab = "http://gitlab.com/"
+# zhihu = "http://example.com/"
+# youtube = "http://youtube.com/"
+# bilibili = "http://example.com/"
+# instagram = "http://example.com/"
+# twitter = "http://twitter.com/"
+# weibo = "http://example.com/"
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
 
