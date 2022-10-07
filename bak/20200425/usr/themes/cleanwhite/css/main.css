@@ -1,0 +1,97 @@
+﻿#body {margin-top:55px;}
+.nopadding {padding:0;}
+.padding {padding:15px;}
+.padding-left {padding-left:15px;}
+.nomargin {margin:0;}
+.margin-left {margin-left:15px;}
+.margin-right {margin-right:15px;}
+.margin-top-26 {margin-top:26px;}
+.margin-top {margin-top:12px;}
+.margin-bottom {margin-bottom:12px;}
+.border {border: 1px solid #F1F1F1;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius:3px;background: #FFFFFF;}
+.border-top {border-top:1px solid #F1F1F1;}
+.border-bottom {border-bottom: 1px solid #F1F1F1;width: 96%;margin-left: auto;margin-right: auto;}
+form[role="search"] input {border-radius: 4px 0 0 4px !important;}
+form[role="search"] button {width:40px;border-left:0;margin-left: 0 !important;background: transparent url(../img/icon-search.png) no-repeat center center;direction: ltr;text-indent: -9999em;}
+ul li img.avatar {width:70px;height:70px;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%;}
+.post-title a {color: #666;}
+.post-title a:hover {color: #000000;}
+article .art-time {font-size: 11px;color: #FFF;width: 75px;height: 65px;margin: 30px 10px 10px 35px;text-align: center;border-radius: 15%;float: left;}
+article .art-time span {display:block;}
+article .art-time span.time-d {font-size:24px;margin-top: 3px;margin-bottom: -8px;}
+.post-meta img {margin:-3px 8px 0 0;}
+.post-content {font-size:14px;margin:25px 40px;}
+.post-content img {max-width:660px;}
+.art-img img {width:100%;}
+.page-navigator {list-style: none;color:#FFF;font-size:11px;line-height:30px;margin:20px 0;font-family:'Lucida Grande',Verdana,Arial;}
+.page-navigator li a {text-align:center;display:block;float:left;width:30px;height:30px;border:none;text-decoration:none;margin-right:10px;background:#FFF;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius:50%;}
+.page-navigator span {display:none;}
+.page-navigator li a:hover {background:#fc6d63;color:#FFF;}
+.page-navigator .current a {background:#BBB;color:#FFF;}
+#footer {color:#a5a5a5;background:#4b4b4b;padding:20px 0;margin-top:20px;display:block;}
+#footer .container a {color: #FFF;}
+.widget {clear: both;margin-bottom: 15px;position: relative;}
+.title {position: relative;margin: 0;line-height: 32px;font-size: 20px;border-bottom: 1px solid #F1F1F1;font-family: inherit;width: 90%;margin-left: auto;margin-right: auto;}
+.title strong {border-bottom: 1px solid#76BDFF;display: inline-block;position: relative;font-weight: normal;margin: 10px 0px 0px 0px;height: 35px;bottom: -1px;}
+.block-share {margin: 20px 0px 0px 20px;height: 40px;width: 270px;}
+.block-share a {background-image: url(../img/comm.png);background-repeat: no-repeat;float: left;width: 37px;height: 37px;margin-right: 26px;text-indent: -9999px;outline: none;}
+.block-share .icon-weibo {width: 49px;height: 41px;margin: -3px 24px 0 0;background-position: 0 -30px;}
+.block-share .icon-weibo:hover {background-position: 0 -75px;}
+.block-share .icon-qqt {background-position: -154px -30px;}
+.block-share .icon-qqt:hover {background-position: -154px -75px;}
+.block-share .icon-weixin {background-position: -201px -30px;}
+.block-share .icon-weixin:hover {background-position: -201px -75px;}
+.block-share .icon-feed {background-position: -60px -30px;float: right;margin: 0px 30px 0px 0px;}
+.block-share .icon-feed:hover {background-position: -60px -75px;}
+.nav-wenzhang {list-style: none;padding: 10px 20px 0px 20px;}
+.nav-wenzhang li {overflow: hidden;text-overflow: clip;white-space: nowrap;list-style: none;color: #999;margin-left: 5px;margin: 5px 0;line-height: 1.5;}
+.nav-wenzhang li a {color: #333;text-overflow: hidden;}
+.nav-wenzhang li a:hover {color: #62c7f2;text-decoration: none;}
+.nav-fenlei {list-style: none;padding: 10px 20px 0px 20px;}
+.nav-fenlei li {border-bottom: 1px dashed #ddd;line-height: 30px;margin: 5px 0;padding-bottom: 5px;}
+.nav-fenlei li a {color: #333;}
+.nav-fenlei li a:hover {color: #62c7f2;text-decoration: none;}
+.nav-tag {padding: 15px 20px 0px 20px}
+.nav-tag a {display: inline-block;padding: 5px 5px 5px 5px;background: #f2f2f2;margin: 0 5px 8px 0;border-radius: 2px;color: #333;box-shadow: 1px 1px 3px rgba(0,0,0,0.2);}
+.nav-tag a:hover {color: #ffffff;text-decoration: none;background-color:#62c7f2;}
+.action-share {margin-bottom: 30px;text-align: center;padding-top: 20px;}
+.action-share a.bds_qzone {background-position: 0px -65px;}
+.action-share a {width: 24px;height: 24px;display: inline-block;margin-right: 5px;background: url('../img/share.png') repeat scroll 0% 0% transparent;cursor: pointer;margin-bottom: -8px;opacity: 0.8;position: relative;
+top: -2px;}
+.action-share a.bds_tsina {background-position: 0px 0px;}
+.action-share a.bds_weixin {background-position: 0px -32px;}
+.action-share a.bds_tqq {background-position: 0px -163px;}
+.action-share a.bds_sqq {background-position: 0px -98px;}
+.action-share a.bds_renren {background-position: 0px -131px;}
+.action-share a.bds_douban {background-position: 0px -196px;}
+.action-share a.bds_fbook {background-position: 0px -226px;}
+#commentsx {margin-bottom: 15px;font-size: 16px;width: 700px;margin-left: auto;margin-right: auto;}
+.titlex {border-bottom: 2px solid #EEE;}
+.titlex h3 {margin: 0px 0px -2px 0px;padding-bottom: 5px;font-size: 20px;color: #666D75;display: inline-block;border-bottom: 2px solid #61B3E6;}
+#respond, #postcomments {position: relative;width: 700px;margin-left: auto;margin-right: auto;}
+#commentform {margin-bottom: 5px;}
+.comt {position: relative;}
+.comt-title {font-size: 12px;color: #999;float: left;margin-left: -46px;width: 36px;text-align: center;}
+.comt-title .avatar {height: 36px;width: 36px;border-radius: 50%;margin-bottom: 5px;}
+.comt-title p {margin-bottom: 0px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+#cancel-comment-reply-link {display: none;font-size: 12px;text-align: center;margin-top: 7px;color: #999;}
+#comment {width: 100%;resize: none;overflow-x: hidden;overflow-y: auto;line-height: 22px;font-size: 14px;outline: 0px none;color: #666;height: 68px;border: #CCD4D9 2px solid;margin: 10px 0px 0px 0px;}
+.comt-ctrl {background-color: #FBFBFB;height: 36px;margin-left: 0px;border-top: 1px solid #F2F2F2;}
+.comt-tips {text-align: center;margin-right: 110px;line-height: 116px;font-size: 18px;color: #FFF;}
+.comt-tip {position: absolute;top: -2px;left: -2px;background: none repeat scroll 0% 0% #7AD071;right: -2px;z-index: 2;bottom: -2px;border-radius: 2px;}
+.comt-error {background: none repeat scroll 0% 0% #FF5E52;}
+#submit {position: absolute;right: 0px;bottom: 0px;background: none repeat scroll 0% 0% #FF655A;border-right: 2px solid #FF5E52;border-width: medium 2px 2px medium;border-style: none solid solid none;border-color: -moz-use-text-color #FF5E52 #FF5E52 -moz-use-text-color;-moz-border-top-colors: none;-moz-border-right-colors: none;-moz-border-bottom-colors: none;-moz-border-left-colors: none;border-image: none;padding: 0px;width: 100px;height: 36px;color: #FFF;outline: 0px none;border-radius: 0px 0px 2px;font-size: 16px;}
+.comt-comterinfo {padding: 15px 0px;text-align: center;}
+.comt-comterinfo ul {padding: 0px;margin: 0px;list-style: none outside none;text-align: left;display: inline-block;}
+.comt-comterinfo li {margin: 0px 0px 0px 0px;float: left;}
+.comt-comterinfo input {position: relative;border: 2px solid #CCD4D9;border-radius: 2px;height: 34px;padding: 3px 5px;outline: medium none;width: 226px;box-shadow: none;}
+.comment-list {padding: 0px;list-style: none outside none;margin: 0px;}
+.comment-odd {border-bottom: 1px solid #EEE;width: 700px;margin-left: auto;margin-right: auto;}
+.comment-even {border-bottom: 1px solid #EEE;width: 700px;margin-left: auto;margin-right: auto;padding-top: 10px;}
+.comment-avatar {width: 36px;height: 36px;background-color: #FFF;float: left;display: inline;position: relative;margin-top: 19px;}
+.comment-avatar .avatar {display: block;border-radius: 50%;width: 36px;height: 36px;}
+.comment-content {margin-left: 10px;margin-right: 10px;color: #888;line-height: 22px;position: relative;font-size: 14px;padding: 0px 0px 0px 0px;}
+.comment-meta {font-size: 12px;color: #BBB;margin: 5px 0px 5px 0px;}
+.comment-author {margin-right: 5px;}
+.comment-reply {text-align: right;margin: 0px 10px 10px 0px;}
+.comment-children {border-top: 1px solid #EEE;padding-top: 10px;}
