@@ -24,9 +24,6 @@ enableRobotsTXT = true
 paginate = 9
 summaryLength = 9
 
-disqusShortname = "x"
-googleAnalytics = "x"
-
 [markup]
 
 [markup.highlight]
