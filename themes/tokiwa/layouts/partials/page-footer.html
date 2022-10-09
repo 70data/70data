@@ -24,14 +24,6 @@
 {{ with $related }}
 <div class="font-serif pb-2 flex align-start leading-loose">
 	<span class="heading pr-6 leading-loose">Related</span>
-    <script src="https://utteranc.es/client.js"
-        repo="70data/70data"
-        issue-term="title"
-        label="blog"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-    </script>
 	<span >
 		{{ range $k, $v := . }}
 			<a href="{{ $v.RelPermalink }}">
@@ -43,4 +35,14 @@
 {{ end }}
 </div>
 <hr />
+<div class="pb-2">
+    <script src="https://utteranc.es/client.js"
+    repo="70data/70data"
+    issue-term="title"
+    label="blog"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+    </script>
+</div>
 <hr />
