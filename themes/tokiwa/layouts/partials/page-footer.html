@@ -35,6 +35,7 @@
 {{ end }}
 </div>
 <hr />
+{{ if .Site.Params.utteranc.enable }}
 <div class="pb-2">
     <script src="https://utteranc.es/client.js"
     repo="70data/70data"
@@ -45,4 +46,5 @@
     async>
     </script>
 </div>
+{{ end }}
 <hr />

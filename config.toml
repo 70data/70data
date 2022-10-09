@@ -46,6 +46,9 @@ math = true
 useChineseFonts = true 
 postDateFormat = "2006-1-2"
 
+[params.utteranc]
+  enable = true
+
 [menu]
 
 [[menu.main]]
