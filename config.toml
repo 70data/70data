@@ -51,14 +51,14 @@ postDateFormat = "2006-1-2"
   enable = true
 
 [params.social]
-instagram="http://example.com/"
-bilibili="http://example.com/"
-weibo="http://example.com/"
-zhihu="http://example.com/"
-twitter="http://twitter.com/"
-gitlab="http://gitlab.com/"
-youtube="http://youtube.com/"
-github="http://github.com/"
+twitter="https://x.com/70data"
+instagram="https://www.instagram.com/70data"
+github="https://github.com/70data"
+# weibo="http://example.com/"
+# zhihu="http://example.com/"
+# gitlab="http://gitlab.com/"
+# youtube="http://youtube.com/"
+# bilibili="http://example.com/"
 
 [menu]
 
