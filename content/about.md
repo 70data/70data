@@ -3,7 +3,6 @@ author: 70data
 title: About
 date: 2012-05-16
 description: 千夜同学的个人博客
-tags:
 toc: true
 ---
 
