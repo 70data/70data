@@ -8,8 +8,6 @@ tags:
 toc: true
 ---
 
-互联网农民工，野路子工程师
-
-关注数据库，深耕云原生
+互联网农民工一枚
 
 ![](https://70data.oss-cn-beijing.aliyuncs.com/note/202210070129361.jpg)
