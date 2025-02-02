@@ -2,7 +2,9 @@ author = "千夜同学"
 
 baseURL = "http://70data.net"
 title = "千夜同学"
-copyright = "Copyright © 2012–2022"
+copyright = "Copyright © 2012–2025"
+
+enableRobotsTXT = true
 
 defaultContentLanguage = "zh-cn"
 languageCode = "zh-cn"
@@ -12,17 +14,16 @@ theme = "tokiwa"
 
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
-
 # uglyurls = true
 disablePathToLower = false
 canonifyurls = true
 relativeURLs = false
 
+summaryLength = 9
 enableEmoji = true
 
-enableRobotsTXT = true
-paginate = 9
-summaryLength = 9
+[pagination]
+  pagersize = 9
 
 [markup]
 
@@ -37,17 +38,27 @@ startLevel = 2
 endLevel = 2
 
 [params]
-bannerFont = "fonts/exampleFont" 
-description = "看脚下一片黑暗 望头顶星光璀璨" 
+bannerFont = "fonts/exampleFont"
+description = "看脚下一片黑暗 望头顶星光璀璨"
 env = "production"
-favicon = "/img/favicon-32x32.png" 
+favicon = "/img/favicon-32x32.png"
 fuse = true
 math = true
-useChineseFonts = true 
+useChineseFonts = true
 postDateFormat = "2006-1-2"
 
 [params.utteranc]
   enable = true
+
+[params.social]
+instagram="http://example.com/"
+bilibili="http://example.com/"
+weibo="http://example.com/"
+zhihu="http://example.com/"
+twitter="http://twitter.com/"
+gitlab="http://gitlab.com/"
+youtube="http://youtube.com/"
+github="http://github.com/"
 
 [menu]
 
@@ -68,17 +79,5 @@ name = "About"
 url = "/about/"
 weight = 3
 
-[social]
-# mail = "mailto:anon@example.com"
-# github = "http://github.com/"
-# gitlab = "http://gitlab.com/"
-# zhihu = "http://example.com/"
-# youtube = "http://youtube.com/"
-# bilibili = "http://example.com/"
-# instagram = "http://example.com/"
-# twitter = "http://twitter.com/"
-# weibo = "http://example.com/"
-
 [outputs]
 home = ["HTML", "RSS", "JSON"]
-
