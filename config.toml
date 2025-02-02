@@ -52,8 +52,8 @@ postDateFormat = "2006-1-2"
 
 [params.social]
 twitter="https://x.com/70data"
-instagram="https://www.instagram.com/70data"
 github="https://github.com/70data"
+# instagram="https://www.instagram.com/70data"
 # weibo="http://example.com/"
 # zhihu="http://example.com/"
 # gitlab="http://gitlab.com/"
